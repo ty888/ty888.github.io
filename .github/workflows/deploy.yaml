@@ -24,20 +24,20 @@ jobs:
       - name: Build
         run: hugo --minify
 
-      # - name: Deploy
-      #   uses: peaceiris/actions-gh-pages@v3
-      #   with:
-      #     deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
-      #     external_repository: ty888/ty888.github.io
-      #     publish_dir: ./public
-      #     publish_branch: master
-
-        name: Deploy
+      - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
-          # github_token: ${{ secrets.GITHUB_TOKEN }}
           personal_token: ${{ secrets.PERSONAL_TOKEN }}
-          # publish_branch: your-branch  # default: gh-pages
+          external_repository: ty888/ty888.github.io
+          publish_dir: ./public
+          publish_branch: master
+
+        # name: Deploy
+        # uses: peaceiris/actions-gh-pages@v3
+        # with:
+        #   # github_token: ${{ secrets.GITHUB_TOKEN }}
+        #   personal_token: ${{ secrets.PERSONAL_TOKEN }}
+        #   # publish_branch: your-branch  # default: gh-pages
 
       - name: SSH key cache
         uses: webfactory/ssh-agent@v0.4.1
