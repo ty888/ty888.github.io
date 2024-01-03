@@ -37,11 +37,11 @@ jobs:
         with:
           ssh-private-key: ${{ secrets.SSH_DEPLOY_KEY }}
 
-      - name: Scan public keys
-        run: ssh-keyscan ${{ secrets.SSH_HOST }} >> ~/.ssh/known_hosts
+      # - name: Scan public keys
+      #   run: ssh-keyscan ${{ secrets.SSH_HOST }} >> ~/.ssh/known_hosts
 
-      - name: Deploy to server
-        run: rsync -av --delete public root@${{ secrets.SSH_HOST }}:/home/blog
+      # - name: Deploy to server
+      #   run: rsync -av --delete public root@${{ secrets.SSH_HOST }}:/home/blog
 
       # - name: Deploy to server
       #   uses: AEnterprise/rsync-deploy@v1.0
